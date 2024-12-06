@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Old Movie</title>
+<link rel="stylesheet" th:href="@{/bootstrap/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/account.css}">
+
+</head>
+<body class="row justify-content-center align-items-center">
+	<div style="background-color: rgba(0, 0, 0, 0.7); border-radius: 10px;" class="col-md-6 ">
+		<div  th:replace="~{|/account/${link}|}"></div>
+	</div>
+	
+</body>
+</html>

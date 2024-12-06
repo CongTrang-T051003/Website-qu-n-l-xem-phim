@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 0, 0);" xmlns="http://www.thymeleaf.org">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+    	<img alt="" th:src="@{/images/logo3.png}" style=" height:50px">
+    </a>
+  
+    <div class="collapse navbar-collapse position-absolute position-absolute top-50 end-0 translate-middle-y" id="navbarSupportedContent " >
+		<img alt="" th:src="@{/images/avt.webp}"  style=" height:50px" class="img-thumbnail">
+        <div class="text-danger"  style="width: 150px;" th:object="${currentuser}">
+	        <div>	
+	        	<b th:text="| Username: *{username}|">Username</b>
+	        </div>
+	        <div>
+	        	<b th:text="| Role: *{role}|">Role</b>
+	        </div>
+        </div>
+    </div>
+  </div>
+</nav>

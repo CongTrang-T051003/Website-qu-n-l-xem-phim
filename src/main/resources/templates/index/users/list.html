@@ -1,0 +1,69 @@
+<!DOCTYPE html >
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Old Movie</title>
+<link rel="stylesheet" th:href="@{/bootstrap/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/account.css}">
+
+</head>
+<body >
+<div>
+	<div  th:replace="~{/management/users/navbar}"></div>
+	<div class="row">
+		<div class="col-md-2">
+			<div th:replace="~{/management/users/sidebar}">></div>
+		</div>
+		<div class="col-md-10 row" style="background-color: rgba(0, 0, 0, 0.7);"  >
+		<div class="col-md-8 offset-2 mt-3" >
+			<table class="table table-dark table-hover">
+  				<thead >
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Username</th>
+			      <th scope="col">Password</th>
+			      <th scope="col">Email</th>
+			      <th scope="col">Role</th>
+			      <th scope="col"></th>
+			    </tr>
+			  </thead >
+			  <tbody th:each="user, state:${users}"   th:object="${user}" >
+			   <tr>
+			      <td th:text="${state.index + 1}"></td> 
+			      <td th:text="*{username}"></td>
+			      <td th:text="*{password}"></td>
+			      <td th:text="*{email}"></td>
+			 	  <td th:text="*{role}"></td>
+			 	
+			 	  <td>
+			 	  	<a  th:href="@{|/management/users/edit?userid=*{id}|}">Edit</a>/
+			 	  	<a th:href="@{/management/users/deleted?userid={id}(id=*{id})}">Deleted</a>
+			 	  </td>
+			    </tr>
+			  </tbody>
+			</table>
+			<div class="d-flex justify-content-center">
+			
+			  <ul class="pagination">
+			    <li th:if="${currentPage > 1}" class="page-item"><a class="page-link" href="#" th:href="@{'?pageNo='+${currentPage-1}}">Previous</a></li>
+			    <li th:each="i:${#numbers.sequence(1,totalPage)}" class="page-item" th:classappend="${currentPage == i ? 'active' : ''}"><a th:text="${i}" class="page-link" th:href="@{|?pageNo=${i}|}">1</a></li>
+			   
+			    <li th:if="${currentPage < totalPage}" class="page-item"><a class="page-link" th:href="@{'?pageNo='+${currentPage+1}}">Next</a></li>
+			  </ul>
+			
+			</div>
+			<form method="get">
+				<a  href="/management/users/add" class="btn btn-secondary">Add</a>
+			</form>
+			
+			
+			
+		</div>
+			
+		</div>
+	</div>
+</div>
+
+	
+</body>
+</html>

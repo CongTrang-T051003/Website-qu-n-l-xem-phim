@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Old Movie</title>
+<link rel="stylesheet" th:href="@{/bootstrap/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/account.css}">
+
+</head>
+<body class="row justify-content-center align-items-center">
+	<div style="background-color: rgba(0, 0, 0, 0.7); border-radius: 10px;" class="col-md-6 ">
+		<div>
+		<form  class="text-white"  method="post" th:object="${user}"  > 
+			<div th:text="${message}" ></div>
+	  <div class="mb-3">
+	    <label for="username" class="form-label">Account name</label>
+	    <input type="text" class="form-control" id="username" th:field="*{username}">
+	  </div>
+	  <div class="mb-3">
+	    <label for="password" class="form-label">Password</label>
+	    <input type="password" class="form-control" th:field="*{password}" id="password">
+	  </div>
+	  <div class="mb-3 form-check">
+	    <input type="checkbox" class="form-check-input" id="rememberme">
+	    <label class="form-check-label" for="rememberme">Remember me</label>
+	  </div>
+	  <div class="row">
+	  	<div class="col-md-10">
+		  <button type="submit" th:action="@{/account/login}" class="btn btn-danger mb-3">Login</button>
+		  <a type="button" class="btn btn-danger mb-3" href="/account/signup">Register</a>
+		</div>
+	  	<div class="col-md-2 align-items-end ms-auto">
+	    	<a type="button" class="btn btn-danger mb-3">Guest</a>
+	 	</div>
+	  </div>
+	</form>
+		</div>
+	</div>
+	
+</body>
+</html>
+
+

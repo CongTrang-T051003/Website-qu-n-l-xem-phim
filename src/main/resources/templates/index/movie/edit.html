@@ -1,0 +1,68 @@
+<!DOCTYPE html >
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Old Movie</title>
+<link rel="stylesheet" th:href="@{/bootstrap/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/account.css}">
+
+</head>
+<body >
+<div>
+	<div  th:replace="~{/management/movie/navbar}"></div>
+	<div class="row">
+		<div class="col-md-2">
+			<div  th:replace="~{/management/movie/sidebar}"></div>
+		</div>
+		<div class="col-md-10 row" style="background-color: rgba(0, 0, 0, 0.7);"  >
+		<div class="col-md-8 offset-2 mt-3" >
+			
+			<form th:object="${movie}" method="post" class="text-white" enctype="multipath/form-data"> 
+		  <div class="mb-3">
+		    <label for="moviename" class="form-label">Tên Phim</label>
+		    <input type="text" class="form-control" id="moviename" th:field="*{moviename}">
+		  </div>
+		  <div class="mb-3">
+		    <label for="vimage" class="form-label">Ảnh Dọc</label>
+		    <input type="text" class="form-control" th:field="*{vimage}" id="vimage">
+		  </div>
+		  <div class="mb-3">
+			    <label for="ximage" class="form-label">Ảnh Ngang</label>
+		    <input type="text" class="form-control" th:field="*{ximage}" id="ximage">
+		  </div>
+		  <div class="mb-3">
+			    <label for="bimage" class="form-label">Ảnh Bìa</label>
+		    <input type="text" class="form-control" th:field="*{bimage}" id="bimage">
+		  </div>
+		  <div class="mb-3">
+			  <label for="content" class="form-label">Nội dung</label>
+		  	  <textarea class="form-control" th:field="*{content}" id="content" rows="10"></textarea>
+		  </div>
+		  <div class="mb-3 row"     >
+		  	<div  class="form-check col-md-2" th:each="category, state:${categories}"th:object="${category}" >
+				  <input class="form-check-input" type="checkbox" th:value="*{categoryname}"
+				     th:checked="${categorymovie.contains(category.id)}">
+
+				  <label class="form-check-label" for="flexCheckCheckedDisabled" th:text="*{categoryname}">
+				  </label>
+			</div>
+		  </div>
+
+		  
+		  <div class="row">
+		  	<div class="col-md-9">
+			  <button type="submit" th:action="@{/movies/edit}"  class="btn btn-secondary mb-3">Save</button>
+			</div>
+		
+		  </div>
+	</form>
+			
+		</div>
+			
+		</div>
+	</div>
+</div>
+
+	
+</body>
+</html>

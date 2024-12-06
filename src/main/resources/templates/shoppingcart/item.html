@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Old Movie</title>
+<link rel="stylesheet" th:href="@{/bootstrap/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/account.css}">
+
+</head>
+<body class="row justify-content-center align-items-center">
+	<div style="background-color: rgba(0, 0, 0, 0.7); border-radius: 10px;" class="col-md-2 text-light" th:each="item, state:${items}"> 
+		<div th:object="${item}" >
+			<strong th:text="*{name}">
+				
+			</strong>
+			<span th:text="*{price}">
+				
+			</span>
+			<img  th:src="@{/images/{img}(img=*{img})}" style=" height:500px" class="img-thumbnail">
+	
+
+			<a th:href="@{/cart/add/{id}(id=*{id})}" class="btn btn-primary">
+					Add to cart
+			</a>
+		</div>
+	</div>
+	
+</body>
+</html>

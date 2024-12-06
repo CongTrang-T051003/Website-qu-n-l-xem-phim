@@ -1,0 +1,11 @@
+@charset "UTF-8";
+body{
+    background-image: url('/images/background.jpg'); /* Đường dẫn đến hình ảnh */
+    background-color: black; /* Màu nền đen */
+    background-size: cover; /* Đặt hình nền phủ kín */
+    background-position: center; /* Căn giữa hình nền */
+    background-repeat: no-repeat; /* Không lặp lại hình nền */
+    height: 100vh; /* Đảm bảo chiều cao 100% */
+    margin: 0; /* Bỏ margin của body nếu cần */
+    
+}
